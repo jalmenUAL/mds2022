@@ -12,6 +12,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.PWA;
 
+import ventanas.VGrupo;
 import ventanas.VInicio;
 
 
@@ -49,7 +50,7 @@ public class MainView extends VerticalLayout {
     	
     	
     	
-    	 VInicio v = new VInicio(); 
+    	 VGrupo v = new VGrupo(); 
          add(v);
          v.getStyle().set("width", "100%");
          v.getStyle().set("height", "100%");
