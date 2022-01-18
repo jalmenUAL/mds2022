@@ -20,6 +20,7 @@ import com.vaadin.flow.component.html.Label;
 @JsModule("./src/ventanas/v-inicio.ts")
 public class VInicio extends LitTemplate {
 
+	
     @Id("vaadinVerticalLayout")
 	private Element vaadinVerticalLayout;
 	@Id("vaadinButton")
