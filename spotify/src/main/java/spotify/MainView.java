@@ -58,6 +58,8 @@ public class MainView extends VerticalLayout {
          setSizeFull();
          
          
+         
+         
      }
  
        
