@@ -48,10 +48,7 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	
-    	
-    	
-    	
-    	
+  
     	 VGrupo v = new VGrupo(); 
          add(v);
          v.getStyle().set("width", "100%");
