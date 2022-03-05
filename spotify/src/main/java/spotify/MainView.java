@@ -50,7 +50,7 @@ public class MainView extends VerticalLayout {
     public MainView() {
     	
   
-    	 VGrupo v = new VGrupo(); 
+    	 VInicio v = new VInicio(); 
          add(v);
          v.getStyle().set("width", "100%");
          v.getStyle().set("height", "100%");
