@@ -1,5 +1,5 @@
 package interfazusuario;
 
-public class CancionListaMes {
+public class GrupoListaMes {
 
 }
