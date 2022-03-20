@@ -18,6 +18,7 @@ import com.vaadin.flow.server.PWA;
 import interfazusuario.Administrador;
 import interfazusuario.GrupoAdministrador;
 import interfazusuario.GrupoNoRegistrado;
+import interfazusuario.Menu;
 import interfazusuario.NoRegistrado;
 import interfazusuario.Registrado;
 import ventanas.VGrupo;
@@ -46,7 +47,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class MainView extends VerticalLayout {
-
+	Menu v;
 	
     /**
      * Construct a new Vaadin view.
@@ -56,17 +57,12 @@ public class MainView extends VerticalLayout {
      * @param service The message service. Automatically injected Spring managed bean.
      */
     public MainView() {
-    	
-  
-    	 NoRegistrado v = new NoRegistrado();
     	 
+    	 v = new NoRegistrado();
     	 add(v);
     	 v.getStyle().set("height", "100%");
     	 v.getStyle().set("width", "100%");
     	 this.setSizeFull();
-    	 
-    	 
-         
     	 
     	 v.getLogin().addClickListener(new ComponentEventListener() {
 
@@ -77,9 +73,8 @@ public class MainView extends VerticalLayout {
  				v.getNick().setVisible(true);
  				v.getPassword().setVisible(true);
  				v.getEntrar().setVisible(true);
+ 				v.getLogin().setVisible(false);
  				
- 				
- 		    	
  		    	v.getEntrar().addClickListener(new ComponentEventListener() {
  		    		
  		    		@Override
@@ -88,22 +83,22 @@ public class MainView extends VerticalLayout {
  		    		
  		    		
  		    	    if (v.getNick().getValue().equals("admin")) {
- 		    	    	
- 		    	    	Administrador gc = new Administrador();
+ 		    	    		
  		    	    	remove(v);	
- 		    	    	add(gc);
- 		    	    	gc.getStyle().set("height", "100%");
- 		 		    	gc.getStyle().set("width", "100%");
+ 		    	    	v = new Registrado();
+ 		    	    	add(v);
+ 		    	        v.getStyle().set("height", "100%");
+ 		 		    	v.getStyle().set("width", "100%");
  		 		    	
  		    	    	
  		    	    }
  		    	    else if (v.getNick().getValue().equals("registrado")) {
  		    	    	
- 		    	    	Registrado gc = new Registrado();
  		    	    	remove(v); 
- 		    	    	add(gc);
- 		    	    	gc.getStyle().set("height", "100%");
- 		 		    	gc.getStyle().set("width", "100%");
+ 		    	    	v = new Registrado();
+ 		    	    	add(v);
+ 		    	    	v.getStyle().set("height", "100%");
+ 		 		    	v.getStyle().set("width", "100%");
  		    	    	 
  		    	        
  		    	    } else {
@@ -113,11 +108,23 @@ public class MainView extends VerticalLayout {
  		    	});
  				
  			}
+ 			
+ 			
  		});
-    	 
-    	
+     
+    	 v.getSalir().addClickListener(new ComponentEventListener() {
+	    		
+	    		@Override
+	 			public void onComponentEvent(ComponentEvent event) {
+	 				// TODO Auto-generated method stub
+	    			
+	    			remove(v);
+	    			v = new NoRegistrado();
+	    			add(v);
+	    			
+	    		}
          
-         
+    	 });
          
          
      }

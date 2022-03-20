@@ -6,6 +6,7 @@ import ventanas.VMenu;
 public class Administrador extends Menu {
 	
 	public Administrador() {
+		
 		this.getBibilioteca().setVisible(false);
 		this.getFavoritos().setVisible(false);
 		this.getLogin().setVisible(false);
