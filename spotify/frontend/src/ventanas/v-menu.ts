@@ -4,7 +4,6 @@ import '@vaadin/vaadin-ordered-layout/src/vaadin-vertical-layout.js';
 import '@vaadin/vaadin-button/src/vaadin-button.js';
 import '@vaadin/vaadin-text-field/src/vaadin-text-field.js';
 import '@vaadin/vaadin-text-field/src/vaadin-password-field.js';
-import './v-grupoicono';
 
 @customElement('v-menu')
 export class VMenu extends LitElement {
@@ -46,10 +45,7 @@ export class VMenu extends LitElement {
     Entrar 
   </vaadin-button>
  </vaadin-vertical-layout>
- <vaadin-vertical-layout class="content" style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; width: 100%; height: 100%;" id="vaadinVerticalLayout1">
-  <v-grupoicono style="flex-grow: 1; width: 100%;"></v-grupoicono>
-  <v-grupoicono style="flex-grow: 1; width: 100%;"></v-grupoicono>
- </vaadin-vertical-layout>
+ <vaadin-vertical-layout class="content" style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; width: 100%; height: 100%;" id="vaadinVerticalLayout1"></vaadin-vertical-layout>
 </vaadin-horizontal-layout>
 `;
   }

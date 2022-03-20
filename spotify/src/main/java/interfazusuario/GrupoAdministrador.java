@@ -9,6 +9,12 @@ public class GrupoAdministrador extends VGrupoicono {
 		
 		this.getAnadirFavoritos().setVisible(false);
 	}
+	
+	public void grupo(String nombre, String imagen) {
+		
+		this.getNombreDelGrupo().setText(nombre);
+		this.getImagenDelGrupo().setSrc(imagen);
+	}
 }
 
 

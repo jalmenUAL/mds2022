@@ -47,7 +47,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 @CssImport("./styles/shared-styles.css")
 @CssImport(value = "./styles/vaadin-text-field-styles.css", themeFor = "vaadin-text-field")
 public class MainView extends VerticalLayout {
-	Menu v;
+	
+	NoRegistrado nr = new NoRegistrado();
+	Registrado r = new Registrado();
+	Administrador a = new Administrador();
 	
     /**
      * Construct a new Vaadin view.
@@ -58,80 +61,96 @@ public class MainView extends VerticalLayout {
      */
     public MainView() {
     	 
-    	 v = new NoRegistrado();
-    	 add(v);
-    	 v.getStyle().set("height", "100%");
-    	 v.getStyle().set("width", "100%");
-    	 this.setSizeFull();
-    	 
-    	 v.getLogin().addClickListener(new ComponentEventListener() {
+    		init();	
+    		
+   	 		this.setSizeFull();
+   	 		
+    }
+   	 
+    public void init() {
+    	
+    		add(nr);
+    		nr.getStyle().set("height", "100%");
+   	 		nr.getStyle().set("width", "100%");
+   	 		nr.getLogin().addClickListener(new ComponentEventListener() {
 
  			@Override
  			public void onComponentEvent(ComponentEvent event) {
  				// TODO Auto-generated method stub
  				
- 				v.getNick().setVisible(true);
- 				v.getPassword().setVisible(true);
- 				v.getEntrar().setVisible(true);
- 				v.getLogin().setVisible(false);
+ 				nr.getNick().setVisible(true);
+ 				nr.getPassword().setVisible(true);
+ 				nr.getEntrar().setVisible(true);
+ 				nr.getLogin().setVisible(false);
  				
- 		    	v.getEntrar().addClickListener(new ComponentEventListener() {
+ 		    	nr.getEntrar().addClickListener(new ComponentEventListener() {
  		    		
  		    		@Override
  		 			public void onComponentEvent(ComponentEvent event) {
  		 				// TODO Auto-generated method stub
  		    		
  		    		
- 		    	    if (v.getNick().getValue().equals("admin")) {
+ 		    	    if (nr.getNick().getValue().equals("admin")) {
  		    	    		
- 		    	    	remove(v);	
- 		    	    	v = new Registrado();
- 		    	    	add(v);
- 		    	        v.getStyle().set("height", "100%");
- 		 		    	v.getStyle().set("width", "100%");
+ 		    	    	remove(nr);	
+ 		    	    	a = new Administrador();
+ 		    	    	add(a);
+ 		    	        a.getStyle().set("height", "100%");
+ 		 		    	a.getStyle().set("width", "100%");
+ 		 		    	a.getSalir().addClickListener(new ComponentEventListener() {
+ 		 		    		
+ 		 		    		@Override
+ 		 		 			public void onComponentEvent(ComponentEvent event) {
+ 		 		 				// TODO Auto-generated method stub
+ 		 		    			
+ 		 		    			remove(a);
+ 		 		    			nr = new NoRegistrado();
+ 		 		    			init();
+ 		 		    			 
+ 		 		    			
+ 		 		    		}
+ 		 	         
+ 		 	    	 });
  		 		    	
  		    	    	
  		    	    }
- 		    	    else if (v.getNick().getValue().equals("registrado")) {
+ 		    	    else if (nr.getNick().getValue().equals("registrado")) {
  		    	    	
- 		    	    	remove(v); 
- 		    	    	v = new Registrado();
- 		    	    	add(v);
- 		    	    	v.getStyle().set("height", "100%");
- 		 		    	v.getStyle().set("width", "100%");
- 		    	    	 
- 		    	        
- 		    	    } else {
- 		    	    	Notification.show("Usuario no conocido");
+ 		    	    	remove(nr); 
+ 		    	    	r = new Registrado();
+ 		    	    	add(r);
+ 		    	    	r.getStyle().set("height", "100%");
+ 		 		    	r.getStyle().set("width", "100%");
+ 		 		    	
+ 		 		    	r.getSalir().addClickListener(new ComponentEventListener() {
+ 		 		    		
+ 		 		    		@Override
+ 		 		 			public void onComponentEvent(ComponentEvent event) {
+ 		 		 				// TODO Auto-generated method stub
+ 		 		    			
+ 		 		    			remove(r);
+ 		 		    			nr= new NoRegistrado();
+ 		 		    			init();
+ 		 		    			 
+ 		 		    			
+ 		 		    		}
+ 		 	         
+ 		 	    	 });
  		    	    }
+ 		    			 
+ 		    	        
+ 		    	    else 
+ 		    	    	Notification.show("Usuario no conocido");
+ 		    	    
+ 		    		
  		    		}
  		    	});
- 				
  			}
- 			
- 			
- 		});
-     
-    	 v.getSalir().addClickListener(new ComponentEventListener() {
-	    		
-	    		@Override
-	 			public void onComponentEvent(ComponentEvent event) {
-	 				// TODO Auto-generated method stub
-	    			
-	    			remove(v);
-	    			v = new NoRegistrado();
-	    			add(v);
-	    			
-	    		}
-         
-    	 });
-         
-         
-     }
- 
-       
-       
-        
+    	 
+   	 		});
+    }
+  
+}    
     
 
-}
+

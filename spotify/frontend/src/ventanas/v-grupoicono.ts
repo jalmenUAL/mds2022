@@ -10,6 +10,7 @@ export class VGrupoicono extends LitElement {
       :host {
           display: block;
           height: 100%;
+    	  width: 100%;
       }
       `;
   }
@@ -17,8 +18,8 @@ export class VGrupoicono extends LitElement {
   render() {
     return html`
 <vaadin-vertical-layout style="width: 100%; height: 100%;" id="vaadinVerticalLayout" theme="spacing-s">
- <img id="ImagenDelGrupo" style="height: 100%;" src="https://imagenes.elpais.com/resizer/FIvjdao7WcFxKgUH2SbGtx4mdDU=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/S2K7YJBNRPTE3VOQ7ZIUXFRRVQ.jpg" img>
- <vaadin-horizontal-layout theme="spacing" id="vaadinHorizontalLayout" style="width: 100%;">
+ <img id="ImagenDelGrupo" style="width: 100%;" src="https://imagenes.elpais.com/resizer/FIvjdao7WcFxKgUH2SbGtx4mdDU=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/S2K7YJBNRPTE3VOQ7ZIUXFRRVQ.jpg" img>
+ <vaadin-horizontal-layout id="vaadinHorizontalLayout" style="width: 100%;">
   <label id="NombreDelGrupo" style="width: 100%;">Nombre del Grupo</label>
   <vaadin-button id="AnadirFavoritos" style="width: 100%;">
     Añadir a Favoritos 
